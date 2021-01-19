@@ -1,0 +1,22 @@
+mixin card
+    .card
+        .card__container.container
+            .card__wrapper
+                .card__inner
+                    .card__links
+                        a(href="/" class= ((subpage === 'schedule') ? "card__link card__link--schedule card__link--active" : "card__link card__link--schedule")) Расписание занятий
+                            svg(width='24' height='24')
+                                use(href="#calendar")
+                        a(href="/teacher.html" class= ((subpage === 'teach') ? "card__link card__link--teach card__link--active" : "card__link card__link--teach")) Расписание преподавателей
+                            svg(width='24' height='24')
+                                use(href="#user")
+                        a(href="/traffic.html" class= ((subpage === 'traff') ? "card__link card__link--traffic card__link--active" : "card__link card__link--traffic")) Загруженность аудиторий
+                            svg(width='24' height='24')
+                                use(href="#layers")
+                    .card__search
+                        label
+                            svg(width='33' height='33' fill="#c3cad6")
+                                use(href="#search")
+                            input(placeholder="Начните вводить название своей группы" type="search")#search
+
+

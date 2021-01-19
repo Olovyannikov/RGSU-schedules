@@ -1,0 +1,47 @@
+.footer {
+    padding-top: 34px;
+}
+
+.footer__wrapper {
+    @include row-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__button {
+    @include col;
+    @include size(2);
+    padding: 13px 20px 13px 45px;
+    position: relative;
+    font-size: rem-calc(14);
+    line-height: rem-calc(16.13);
+    svg {
+        position: absolute;
+        fill: $c-white-0;
+        left: 17px;
+        top: 13px;
+    }
+}
+
+.footer__version {
+    margin: 0;
+    font-size: rem-calc(14);
+    line-height: rem-calc(16.13);
+    color: $c-white-0;
+}
+
+.footer__print {
+    font-size: rem-calc(14);
+    line-height: rem-calc(16.13);
+    height: 42px;
+    position: relative;
+    padding: 13px 20px 13px 45px;
+    @include col;
+    @include size(1.5392);
+    svg {
+        fill: $c-white-0;
+        position: absolute;
+        left: 17px;
+        top: 13px;
+    }
+}

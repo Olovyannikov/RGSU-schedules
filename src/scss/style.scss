@@ -1,0 +1,41 @@
+@import "vendor/normalize";
+@import "vendor/smart-grid";
+
+@import "general/fonts";
+@import "general/variables";
+@import "general/rem-calc";
+@import "general/mixins";
+@import "general/scaffolding";
+
+@import "blocks/header/header";
+@import "blocks/footer/footer";
+
+@import "blocks/card";
+
+@mixin debug($background, $outline){
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+
+    > div{
+        height: inherit;
+        @include wrapper();
+
+        > div{
+            height: inherit;
+            @include row-flex();
+
+            > div{
+                @include col();
+                @include size(1);
+                height: inherit;
+                outline: $outline;
+                background: $background;
+            }
+        }
+    }
+}
+.debug-grid{
+    z-index: 999;
+    @include debug(rgba(255, 0, 0, 0.1), 1px solid #ff0000);
+}

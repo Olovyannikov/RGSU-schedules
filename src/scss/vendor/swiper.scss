@@ -1,0 +1,191 @@
+:root {
+    --swiper-theme-color: #007aff;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+.swiper-slide {
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+
+:root {
+    --swiper-navigation-size: 44px;
+    /*
+  --swiper-navigation-color: var(--swiper-theme-color);
+  */
+}
+.swiper-button-prev,
+.swiper-button-next {
+    width: 38px;
+    height: 72px;
+    background-size: cover;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color, var(--swiper-theme-color));
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+    opacity: 0.35;
+    cursor: auto;
+    pointer-events: none;
+}
+
+.swiper-button-prev {
+    transform: rotate(180deg);
+}
+
+.swiper-pagination {
+    display: flex;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+    justify-content: space-between;
+    align-items: center;
+    width: 70px;
+    margin: 0 auto;
+}
+.swiper-pagination.swiper-pagination-hidden {
+    opacity: 0;
+}
+
+/* Bullets */
+.swiper-pagination-bullets-dynamic {
+    overflow: hidden;
+    font-size: 0;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transform: scale(0.33);
+    position: relative;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {
+    transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+    transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+    transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+    transform: scale(0.33);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+    transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+    transform: scale(0.33);
+}
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #656565;
+    transition: 0.5s;
+}
+button.swiper-pagination-bullet {
+    margin: 0;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #6cc272;
+    height: 10px;
+}
+
+.swiper-container-horizontal
+    > .swiper-pagination-bullets
+    .swiper-pagination-bullet {
+    margin-top: 6px;
+}
+.swiper-container-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+.swiper-container-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet {
+    transition: 200ms transform, 200ms left;
+}
+.swiper-container-horizontal.swiper-container-rtl
+    > .swiper-pagination-bullets-dynamic
+    .swiper-pagination-bullet {
+    transition: 200ms transform, 200ms right;
+}
+
+.swiper-container {
+    max-width: 1440px;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.gallery {
+    margin-bottom: 35px;
+    @media (min-width: $break_lg) {
+        margin-bottom: 30px;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 212px;
+        margin-left: auto;
+        margin-right: auto;
+        @media (min-width: $break_lg) {
+            margin-left: 0;
+            height: 387px;
+            max-width: 658px;
+        }
+    }
+
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .gallery-top {
+        width: 100%;
+    }
+
+    .gallery-thumbs {
+        height: 72px;
+        box-sizing: border-box;
+        padding: 2px 0;
+        @media (min-width: $break_lg) {
+            height: 65px;
+        }
+    }
+
+    .gallery-thumbs .swiper-slide {
+        height: 100%;
+    }
+
+    .gallery-thumbs .swiper-slide-thumb-active {
+        opacity: 1;
+    }
+}

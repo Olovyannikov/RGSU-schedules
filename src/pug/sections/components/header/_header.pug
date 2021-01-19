@@ -1,0 +1,27 @@
+.debug-grid
+    div
+        div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+            div
+
+header.header#header
+    .header__container.container
+        .header__wrapper
+            a(href="/").header__logo
+                svg(width="58" height="80" fill="#fff")
+                    use(href="#RGSU-logo")
+                span Расписание учебных <br> занятий университета
+            .header__menu
+                a(href="/" class= ((page === 'index') ? "header__link btn btn--primary active" : "header__link btn btn--primary")) Онлайн расписание
+                a(href="/contacts.html" class= ((page === 'contacts') ? "header__link btn btn--primary active" : "header__link btn btn--primary")) Чат боты
+                a(href="/instructions.html" class= ((page === 'instructions') ? "header__link btn btn--primary active" : "header__link btn btn--primary")) Инструкции

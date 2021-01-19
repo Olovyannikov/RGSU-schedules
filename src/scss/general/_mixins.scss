@@ -1,0 +1,130 @@
+@mixin retina {
+    @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        @content;
+    }
+}
+
+
+
+@mixin list-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@mixin btn-reset {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin hover {
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:focus {
+        outline: none;
+        opacity: 0.7;
+    }
+}
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+$pi: 3.14159265359;
+$_precision: 10;
+
+@function pow($base, $exp) {
+    $value: $base;
+    @if $exp > 1 {
+        @for $i from 2 through $exp {
+            $value: $value * $base;
+        }
+    }
+    @if $exp < 1{
+        @for $i from 0 through -$exp {
+            $value: $value / $base;
+        }
+    }
+    @return $value;
+}
+
+@function fact($num) {
+    $fact: 1;
+    @if $num > 0{
+        @for $i from 1 through $num {
+            $fact: $fact * $i;
+        }
+    }
+    @return $fact;
+}
+
+@function _to_unitless_rad($angle) {
+    @if unit($angle) == "deg" {
+        $angle: $angle / 180deg * $pi;
+    }
+    @if unit($angle) == "rad" {
+        $angle: $angle / 1rad;
+    }
+    @return $angle;
+}
+
+@function sin($angle){
+    $a: _to_unitless_rad($angle);
+    $sin: $a;
+    @for $n from 1 through $_precision {
+        $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1) ) * pow($a, (2 * $n + 1));
+    }
+    @return $sin;
+}
+
+@function cos($angle){
+    $a: _to_unitless_rad($angle);
+    $cos: 1;
+    @for $n from 1 through $_precision {
+        $cos: $cos + ( pow(-1,$n) / fact(2*$n) ) * pow($a,2*$n);
+    }
+    @return $cos;
+}
+
+@function tan($angle){
+    @return sin($angle) / cos($angle);
+}
+
+@mixin folded-corner($background, $size, $angle: 30deg) {
+
+    position: relative;
+    background: $background; /* Fallback */
+    background: linear-gradient($angle - 180deg, transparent $size, $background 0);
+    border-radius: .5em;
+
+    $x: $size / sin($angle);
+    $y: $size / cos($angle);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0;
+        background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,.2) 0, rgba(0,0,0,.4)) 100% 0 no-repeat;
+        width: $y;
+        height: $x;
+        transform: translateY($y - $x) rotate(2*$angle - 90deg);
+        transform-origin: bottom right;
+        border-bottom-left-radius: inherit;
+        box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15);
+    }
+}
+
+
