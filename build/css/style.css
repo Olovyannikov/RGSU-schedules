@@ -520,6 +520,15 @@ input::-webkit-search-cancel-button {
   display: none;
 }
 
+input:focus,
+input:hover {
+  border: 1px solid #3464e0;
+  outline: none;
+  -webkit-box-shadow: 0 0 0 2px rgba(156, 186, 240, 0.5);
+          box-shadow: 0 0 0 2px rgba(156, 186, 240, 0.5);
+  transition: box-shadow .5s, border-color .25s ease-in-out, -webkit-box-shadow .5s;
+}
+
 .container {
   max-width: 1350px;
   margin: 0 auto;
@@ -767,6 +776,7 @@ input::-webkit-search-cancel-button {
   border-radius: 4px;
   min-height: 519px;
   position: relative;
+  padding-bottom: 29px;
 }
 
 .card__wrapper::before,
@@ -887,7 +897,7 @@ input::-webkit-search-cancel-button {
   margin-right: 15px;
   width: calc(100% - 240px);
   position: relative;
-  margin: 0 auto 76px;
+  margin: 0 auto;
 }
 
 .card__search svg {
@@ -937,6 +947,93 @@ input::-webkit-search-cancel-button {
 
 .card__search input::placeholder {
   color: #c3cad6;
+}
+
+.V-autocomplete {
+  position: relative;
+}
+
+.V-autocomplete ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  background: #fff;
+  -webkit-box-shadow: 0 0.2em 1.4em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.2em 1.4em 0 rgba(0, 0, 0, 0.2);
+}
+
+.V-autocomplete li {
+  cursor: pointer;
+  color: #444444;
+  border-top: 1px solid #efefef;
+  padding: 0 1em;
+  line-height: 2.4;
+  z-index: 999;
+}
+
+.V-autocomplete li.highlight {
+  color: #000;
+  background: #f9f9f9;
+}
+
+.card__table {
+  border-collapse: collapse;
+  z-index: 1;
+  margin-top: 76px;
+}
+
+.card__table tr:not(:first-child) {
+  border: 1px solid #f1f4f9;
+}
+
+.card__table td {
+  border-right: 1px solid #f1f4f9;
+  border-left: 1px solid #f1f4f9;
+  font-size: 1.25rem;
+  line-height: 1.625rem;
+  padding-left: 20px;
+}
+
+.card__table th {
+  font-size: 1.375rem;
+  line-height: 1.625rem;
+  text-align: left;
+  font-style: normal;
+  padding-left: 26px;
+  padding-bottom: 25px;
+}
+
+.card__table-cell--auditory {
+  position: relative;
+  padding-right: 29px;
+}
+
+.card__table-cell--auditory svg {
+  fill: #c3cad6;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  content: '';
+  display: block;
+}
+
+.card__table-cell-divider {
+  background: #f1f4f9;
+  color: #c3cad6;
+  text-align: center;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.card__table-cell--date {
+  width: 153px;
+  color: #3464e0;
+  padding: 37px 15px 40px 26px;
 }
 
 .debug-grid {

@@ -31,6 +31,7 @@ body {
 a {
     text-decoration: none;
     color: $c-black-0;
+
     &:visited {
         color: $c-grey-0;
     }
@@ -79,11 +80,13 @@ body > svg {
     background-color: rgba(0, 0, 0, 0.15);
     z-index: 20;
     transition: 0.3s all;
+
     &.active {
         opacity: 1;
         visibility: visible;
         backdrop-filter: blur(1px);
     }
+
     &--menu {
         opacity: 1;
         visibility: visible;
@@ -96,6 +99,14 @@ input::-webkit-search-cancel-button {
     display: none;
 }
 
+input:focus,
+input:hover {
+    border: 1px solid #3464e0;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(156, 186, 240, .5);
+    transition: box-shadow .5s, border-color .25s ease-in-out, -webkit-box-shadow .5s;
+}
+
 .container {
     @include wrapper;
 }
@@ -106,12 +117,14 @@ input::-webkit-search-cancel-button {
     line-height: rem-calc(25.34);
     color: #485667;
     margin: 0;
+
     &--secondary {
         font-weight: 700;
         font-size: rem-calc(60);
         line-height: rem-calc(70.31);
         color: $c-white-0;
     }
+
     &--section {
         @include md-block {
             font-size: rem-calc(24);
@@ -119,11 +132,13 @@ input::-webkit-search-cancel-button {
             font-weight: 500;
         }
     }
+
     &--big {
         font-size: rem-calc(36);
         line-height: rem-calc(42);
         font-weight: 500;
     }
+
     &--sub {
         font-size: rem-calc(18);
         line-height: rem-calc(21.09);
@@ -138,22 +153,26 @@ input::-webkit-search-cancel-button {
     font-size: rem-calc(18);
     line-height: rem-calc(26);
     border-radius: 50px;
+
     &--primary {
         padding: 11px 43.56px;
         border: 1px solid #3464E0;
     }
+
     &--secondary {
         color: $c-grey-0;
         background: $c-grey-100;
         padding: 10px 20px;
         border: none;
     }
+
     &--service {
         position: relative;
         padding-left: 60px;
         color: $c-grey-0;
         border: none;
         border-radius: 0;
+
         svg {
             content: '';
             position: absolute;
@@ -166,6 +185,7 @@ input::-webkit-search-cancel-button {
             top: 50%;
         }
     }
+
     &:focus {
         box-shadow: 0 0 2px #A2C1F3;
     }

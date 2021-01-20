@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="820247ce-2704-4379-a191-5c1f5fb74e67" name="Default Changelist" comment="" />
+    <list default="true" id="820247ce-2704-4379-a191-5c1f5fb74e67" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/build/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/instructions.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/instructions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/js/script.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/teacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/teacher.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/traffic.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/traffic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pug/mixins/_card.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/pug/mixins/_card.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pug/sections/components/header/_header.pug" beforeDir="false" afterPath="$PROJECT_DIR$/src/pug/sections/components/header/_header.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/blocks/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/blocks/_card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/general/scaffolding.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/general/scaffolding.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +28,11 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1nHNEuhBzz7300jNHjuwyI8jrrK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -50,7 +72,8 @@
       <updated>1611042948584</updated>
       <workItem from="1611042972093" duration="110000" />
       <workItem from="1611043089764" duration="827000" />
-      <workItem from="1611044392323" duration="18875000" />
+      <workItem from="1611044392323" duration="19021000" />
+      <workItem from="1611130020166" duration="11235000" />
     </task>
     <servers />
   </component>

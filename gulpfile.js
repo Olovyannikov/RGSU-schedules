@@ -141,6 +141,7 @@ function js() {
                     filename: "script.js",
                 },
                 module: {
+
                     rules: [
                         {
                             test: /\.m?js$/,
@@ -153,6 +154,11 @@ function js() {
                             },
                         },
                     ],
+                },
+                resolve: {
+                    alias: {
+                        'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' для webpack 1
+                    }
                 },
                 plugins: [
                     new webpack.ContextReplacementPlugin(
