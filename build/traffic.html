@@ -39,15 +39,15 @@
                         <p>
                           <svg width="33" height="33" fill="#c3cad6">
                             <use href="#search"></use>
-                          </svg><span v-show="keyword"><a href="#" v-show="keyword" @click.prevent="keyword=''"></a></span>
+                          </svg>
                         </p>
-                        <input class="Search" placeholder="Начните вводить" v-model="keyword" @keydown.down="moveDown" @keydown.up="moveUp" @keydown.enter="onSelect(filteredItems[highlight])" @input="onInput($event.target.value)" @blur="keyword = selected"/>
+                        <input class="Search" placeholder="Начните вводить" v-model="keyword" @keydown.down="moveDown" @keydown.up="moveUp" @keydown.enter="onSelect(filteredItems[highlight])" @input="onInput($event.target.value)" @keydown.delete="selected={}" @blur="keyword = selected.city"/>
                         <p v-show="!test" style="color:red">Кирилицей !</p>
                         <div class="btn fill red" v-show="filteredItems.length == 0" @click="keyword=''">не найдено</div>
                         <ul class="filteredItems" v-show="keyword &amp;&amp; !selected.city">
-                          <li v-for="(item,i) in filteredItems" :key="item.code" :class="{highlight:i==highlight}" @mouseenter="highlight = i" @click="onSelect(item)" v-html="mark(item.city) + ' ' + '&lt;span&gt;' + mark(item.region) + '&lt;/span&gt;'"></li>
+                          <li v-for="(item,i) in filteredItems" v-model="selected" :key="item.code" @mousedown="onSelect(filteredItems[highlight])" :class="{highlight:i==highlight}" v-html="mark(item.city) + ', ' + '&lt;span&gt;' + mark(item.region) + '&lt;/span&gt;'"></li>
                         </ul>
-                        <table class="card__table" v-show="keyword" v-model="keyword">
+                        <table class="card__table" v-show="keyword &amp;&amp; selected.city">
                           <tr class="card__table-row">
                             <th class="card__table-cell">Время</th>
                             <th class="card__table-cell card__table-cell--auditory" width="167">Аудитория
@@ -70,21 +70,21 @@
                             <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
                           </tr>
                           <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">{{ new Date().getHours() + ':' + new Date().getMinutes()}}</td>
+                            <td class="card__table-cell card__table-cell--date">{{ }}</td>
                             <td class="card__table-cell card__table-cell--class">ВП8-404</td>
                             <td class="card__table-cell card__table-cell--type">Семинар</td>
                             <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>
                             <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
                           </tr>
                           <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">{{ new Date().getHours() + ':' + new Date().getMinutes()}}</td>
+                            <td class="card__table-cell card__table-cell--date">{{ }}</td>
                             <td class="card__table-cell card__table-cell--class">ВП8-404</td>
                             <td class="card__table-cell card__table-cell--type">Лекция</td>
                             <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>
                             <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
                           </tr>
                           <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">{{ new Date().getHours() + ':' + new Date().getMinutes()}}</td>
+                            <td class="card__table-cell card__table-cell--date">{{ }}</td>
                             <td class="card__table-cell card__table-cell--class">ВП8-404</td>
                             <td class="card__table-cell card__table-cell--type">Лекция</td>
                             <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>

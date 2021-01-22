@@ -19,8 +19,6 @@ mixin card
                                 p
                                     svg(width='33' height='33' fill="#c3cad6")
                                         use(href="#search")
-                                    span(v-show="keyword")
-                                        a(href="#" v-show="keyword" @click.prevent="keyword=''")
                                 //- Набрать кирилицей
                                 input.Search(
                                     placeholder="Начните вводить"
@@ -29,19 +27,20 @@ mixin card
                                     @keydown.up='moveUp',
                                     @keydown.enter='onSelect(filteredItems[highlight])',
                                     @input="onInput($event.target.value)",
-                                    @blur="keyword = selected")
+                                    @keydown.delete="selected={}",
+                                    @blur="keyword = selected.city")
                                 p(v-show="!test", style="color:red") Кирилицей !
                                 .btn.fill.red(v-show="filteredItems.length == 0", @click="keyword=''") не найдено
                                 ul.filteredItems(
                                     v-show="keyword && !selected.city")
                                     li(
                                         v-for="(item,i) in filteredItems",
+                                        v-model="selected",
                                         :key="item.code",
+                                        @mousedown='onSelect(filteredItems[highlight])',
                                         :class="{highlight:i==highlight}",
-                                        @mouseenter='highlight = i',
-                                        @click="onSelect(item)",
-                                        v-html="mark(item.city) + ' ' + '<span>' + mark(item.region) + '</span>'")
-                                table(v-show="keyword" v-model="keyword").card__table
+                                        v-html="mark(item.city) + ', ' + '<span>' + mark(item.region) + '</span>'")
+                                table(v-show="keyword && selected.city").card__table
                                     tr.card__table-row
                                         th.card__table-cell Время
                                         th.card__table-cell.card__table-cell--auditory(width='167') Аудитория
@@ -60,21 +59,21 @@ mixin card
                                         td.card__table-cell.card__table-cell--teacher Рябова Татьяна Михайловна
                                             span.card__table-teacherStatus к.соц.н.
                                     tr.card__table-row
-                                        td.card__table-cell.card__table-cell--date {{ new Date().getHours() + ':' + new Date().getMinutes()}}
+                                        td.card__table-cell.card__table-cell--date {{ }}
                                         td.card__table-cell.card__table-cell--class ВП8-404
                                         td.card__table-cell.card__table-cell--type Семинар
                                         td.card__table-cell.card__table-cell--disciple Управление государственными и муниципальными услугами и заказами
                                         td.card__table-cell.card__table-cell--teacher Рябова Татьяна Михайловна
                                             span.card__table-teacherStatus к.соц.н.
                                     tr.card__table-row
-                                        td.card__table-cell.card__table-cell--date {{ new Date().getHours() + ':' + new Date().getMinutes()}}
+                                        td.card__table-cell.card__table-cell--date {{ }}
                                         td.card__table-cell.card__table-cell--class ВП8-404
                                         td.card__table-cell.card__table-cell--type Лекция
                                         td.card__table-cell.card__table-cell--disciple Управление государственными и муниципальными услугами и заказами
                                         td.card__table-cell.card__table-cell--teacher Рябова Татьяна Михайловна
                                             span.card__table-teacherStatus к.соц.н.
                                     tr.card__table-row
-                                        td.card__table-cell.card__table-cell--date {{ new Date().getHours() + ':' + new Date().getMinutes()}}
+                                        td.card__table-cell.card__table-cell--date {{ }}
                                         td.card__table-cell.card__table-cell--class ВП8-404
                                         td.card__table-cell.card__table-cell--type Лекция
                                         td.card__table-cell.card__table-cell--disciple Управление государственными и муниципальными услугами и заказами
