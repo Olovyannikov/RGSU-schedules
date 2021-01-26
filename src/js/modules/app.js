@@ -26,18 +26,20 @@ export default () => {
             onInput(value) {
 
                 if (value === '') this.selected = {};
-                if (this.filteredItems.length == 1 && this.highlight) this.highlight = 0;
+                if (this.filteredItems.length == 1 && this.highlight) this.highlight = 0; 
                 //this.test = /^[ а-яА-я]/.test(this.keyword);
 
             },
             onSelect(val) {
                 this.selected = val;
-                this.keyword = this.selected.city;
-                //
-                this.highlight = 0;
+                this.keyword = this.selected.city + ', ' + this.selected.region;
+                this.highlight = 0; 
             },
+            onClick(val){ 
+                this.onSelect({'city': val}) 
+            },
+            
             moveDown() {
-                //this.highlight++
                 if (!this.keyword) return;
                 this.highlight = (this.highlight + 1) % this.filteredItems.length;
             },
@@ -47,10 +49,6 @@ export default () => {
                     this.highlight - 1 < 0
                         ? this.filteredItems.length - 1
                         : this.highlight - 1;
-            },
-            mark(word) {
-                const regex = new RegExp("(" + this.keyword + ")", "gi");
-                return word.replace(regex, "<mark>$1</mark>");
             }
         },
         mounted() {

@@ -37,7 +37,7 @@
                     <div class="card__search">
                       <div class="V-autocomplete">
                         <p>
-                          <svg width="33" height="33" fill="#c3cad6">
+                          <svg width="33" height="33" fill="#c3cad6"> 
                             <use href="#search"></use>
                           </svg>
                         </p>
@@ -45,10 +45,10 @@
                         <p v-show="!test" style="color:red">Кирилицей !</p>
                         <div class="btn fill red" v-show="filteredItems.length == 0" @click="keyword=''">не найдено</div>
                         <ul class="filteredItems" v-show="keyword &amp;&amp; !selected.city">
-                          <li v-for="(item,i) in filteredItems" v-model="selected" :key="item.code" @mousedown="onSelect(filteredItems[highlight])" :class="{highlight:i==highlight}" v-html="mark(item.city) + ', ' + '&lt;span&gt;' + mark(item.region) + '&lt;/span&gt;'"></li>
+                          <li @mouseover="moveDown" v-for="(item,i) in filteredItems" v-model="selected" :key="item.code" @mousedown="onClick($event.target.innerText)" :class="{highlight:i==highlight}" v-html="(item.city)+ ', ' + (item.region)"> </li>
                         </ul>
                         <table class="card__table" v-show="keyword &amp;&amp; selected.city">
-                          <tr class="card__table-row">
+                          <tr class="card__table-row"> 
                             <th class="card__table-cell">Время</th>
                             <th class="card__table-cell card__table-cell--auditory" width="167">Аудитория
                               <svg width="24" height="24">
