@@ -17,12 +17,12 @@ mixin card
                         .card__search
                             .V-autocomplete
                                 p
-                                    svg(width='33' height='33' fill="#c3cad6")
+                                    svg(width='33' height='33' fill="#c3cad6") 
                                         use(href="#search")
                                 //- Набрать кирилицей
                                 input.Search(
                                     placeholder="Начните вводить"
-                                    v-model="keyword",
+                                    v-model="keyword", 
                                     @keydown.down='moveDown',
                                     @keydown.up='moveUp',
                                     @keydown.enter='onSelect(filteredItems[highlight])',
@@ -34,14 +34,15 @@ mixin card
                                 ul.filteredItems(
                                     v-show="keyword && !selected.city")
                                     li(
+                                        @mouseover="moveDown",
                                         v-for="(item,i) in filteredItems",
-                                        v-model="selected",
-                                        :key="item.code",
-                                        @mousedown='onSelect(filteredItems[highlight])',
+                                        v-model="selected", 
+                                        :key="item.code", 
+                                        @mousedown='onClick($event.target.innerText)',
                                         :class="{highlight:i==highlight}",
-                                        v-html="mark(item.city) + ', ' + '<span>' + mark(item.region) + '</span>'")
+                                        v-html="(item.city)+ ', ' + (item.region)") 
                                 table(v-show="keyword && selected.city").card__table
-                                    tr.card__table-row
+                                    tr.card__table-row 
                                         th.card__table-cell Время
                                         th.card__table-cell.card__table-cell--auditory(width='167') Аудитория
                                             svg(width='24' height='24')
