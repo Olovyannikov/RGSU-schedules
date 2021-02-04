@@ -35,8 +35,12 @@ export default () => {
                 this.keyword = this.selected.city + ', ' + this.selected.region;
                 this.highlight = 0; 
             },
-            onClick(val){ 
-                this.onSelect({'city': val}) 
+            onClick(val){
+                console.log(`...../..../../?action=getSchedule&cptl=students&param=${val}`); 
+                this.onSelect({'city': val});
+                fetch(`...../..../../?action=getSchedule&cptl=students&param=${val}`, {
+                    method : 'GET'
+                }).then(data => data.json()).then(response => console.log(response)); 
             },
             
             moveDown() {
