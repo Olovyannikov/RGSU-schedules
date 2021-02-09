@@ -41,56 +41,13 @@
                             <use href="#search"></use>
                           </svg>
                         </p>
-                        <input class="Search" placeholder="Начните вводить" v-model="keyword" @keydown.down="moveDown" @keydown.up="moveUp" @keydown.enter="onSelect(filteredItems[highlight])" @input="onInput($event.target.value)" @keydown.delete="selected={}" @blur="keyword = selected.city"/>
+                        <input class="Search" placeholder="Начните вводить" v-model="keyword" @keydown.down="moveDown" @keydown.up="moveUp" @keydown.enter="onSelect(filteredItems[highlight])" @input="onInput($event.target.value)" @keydown.delete="selected={}" @blur="keyword = selected.name"/>
                         <p v-show="!test" style="color:red">Кирилицей !</p>
                         <div class="btn fill red" v-show="filteredItems.length == 0" @click="keyword=''">не найдено</div>
-                        <ul class="filteredItems" v-show="keyword &amp;&amp; !selected.city">
-                          <li @mouseover="moveDown" v-for="(item,i) in filteredItems" v-model="selected" :key="item.code" @mousedown="onClick($event.target.innerText)" :class="{highlight:i==highlight}" v-html="(item.city)+ ', ' + (item.region)"> </li>
+                        <ul class="filteredItems" v-show="keyword &amp;&amp; !selected.name">
+                          <li @mouseover="moveDown" v-for="(item,i) in filteredItems" v-model="selected" :key="item" @mousedown="onClick(item)" :class="{highlight:i==highlight}" v-html="(item.name)"> </li>
                         </ul>
-                        <table class="card__table" v-show="keyword &amp;&amp; selected.city">
-                          <tr class="card__table-row"> 
-                            <th class="card__table-cell">Время</th>
-                            <th class="card__table-cell card__table-cell--auditory" width="167">Аудитория
-                              <svg width="24" height="24">
-                                <use href="#pin"></use>
-                              </svg>
-                            </th>
-                            <th class="card__table-cell">Тип занятия</th>
-                            <th class="card__table-cell">Дисциплина</th>
-                            <th class="card__table-cell">Преподаватель</th>
-                          </tr>
-                          <tr class="card__table-row card__table-divider">
-                            <td class="card__table-cell card__table-cell-divider" colspan="5">22.03.2020 Понедельник</td>
-                          </tr>
-                          <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">8:30 - 10:00</td>
-                            <td class="card__table-cell card__table-cell--class">{{ selected.city }}</td>
-                            <td class="card__table-cell card__table-cell--type" width="203">Лекция</td>
-                            <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>
-                            <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
-                          </tr>
-                          <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">{{ }}</td>
-                            <td class="card__table-cell card__table-cell--class">ВП8-404</td>
-                            <td class="card__table-cell card__table-cell--type">Семинар</td>
-                            <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>
-                            <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
-                          </tr>
-                          <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">{{ }}</td>
-                            <td class="card__table-cell card__table-cell--class">ВП8-404</td>
-                            <td class="card__table-cell card__table-cell--type">Лекция</td>
-                            <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>
-                            <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
-                          </tr>
-                          <tr class="card__table-row">
-                            <td class="card__table-cell card__table-cell--date">{{ }}</td>
-                            <td class="card__table-cell card__table-cell--class">ВП8-404</td>
-                            <td class="card__table-cell card__table-cell--type">Лекция</td>
-                            <td class="card__table-cell card__table-cell--disciple">Управление государственными и муниципальными услугами и заказами</td>
-                            <td class="card__table-cell card__table-cell--teacher">Рябова Татьяна Михайловна<span class="card__table-teacherStatus">к.соц.н.</span></td>
-                          </tr>
-                        </table>
+                        <table class="card__table" v-show="keyword &amp;&amp; selected.name"></table>
                       </div>
                     </div>
                   </div>
